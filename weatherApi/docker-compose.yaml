@@ -1,0 +1,39 @@
+services:
+  db:
+    container_name: postgress_container
+    image: postgres:16.9-bullseye
+    ports:
+      - "5000:5432"
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: db_user
+      POSTGRES_PASSWORD: db_password
+    volumes:
+      - ./postgres:/var-1/lib-1/postgresql-1/data-1
+      - ./postgres/airflow_init.sql:/docker-entrypoint-initdb.d/airflow_init.sql
+    networks:
+      - my-network
+
+  af:
+    container_name: airflow_container
+    image: apache/airflow:3.0.0
+    ports:
+      - 8000:8080
+    environment: 
+      AIRFLOW_DATABASE_SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@db:5432/airflow_db
+      PYTHONPATH: "/opt/airflow/api-request:${PYTHONPATH}"
+    depends_on:
+      - db
+    networks:
+      - my-network
+    command:
+      bash -c "airflow db migrate && airflow standalone"
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./api-request:/opt/airflow/plugins/api_request
+      - /var/run/docker.sock:/var/run/docker.sock
+  
+networks:
+  my-network:
+    name: shared-network
+    driver: bridge

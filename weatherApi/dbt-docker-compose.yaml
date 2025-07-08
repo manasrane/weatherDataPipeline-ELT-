@@ -1,0 +1,20 @@
+services:
+  dbt:
+    container_name: dbt_container
+    image: ghcr.io/dbt-labs/dbt-postgres:1.9.latest
+    volumes:
+      - ./dbt/my_project:/usr/app
+      - ./wait-for.sh:/wait-for.sh
+      - ./dbt/.dbt/profiles.yml:/root/.dbt/profiles.yml:ro
+    working_dir: /usr/app
+    environment:
+      DBT_PROFILES_DIR: "/root/.dbt"
+    entrypoint: ["bash", "-c"]
+    command: ["dbt run && tail -f /dev/null"]
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    external: true
+    name: shared-network
