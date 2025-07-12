@@ -1,5 +1,5 @@
 import requests
-api_key = "676f1fba82624ce10cd82441bef55e62"
+api_key = "<place_your_api_key_here>"  # Replace with your actual API key
 api_url = "http://api.weatherstack.com/current"
 params = {
     'access_key': api_key,  # Your actual API key
