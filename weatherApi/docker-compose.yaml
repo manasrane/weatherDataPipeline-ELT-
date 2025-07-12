@@ -32,7 +32,7 @@ services:
       AIRFLOW_DATABASE_SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@db:5432/airflow_db
       AIRFLOW_CONN_DOCKER_DEFAULT: docker://unix://var/run/docker.sock
       PYTHONPATH: "/opt/airflow/api-request:${PYTHONPATH}"
-      AIRFLOW__DOCKER__REGISTRY_CONFIG: '{"ghcr.io": {"username": "manasrane", "password": "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"}}'
+      AIRFLOW__DOCKER__REGISTRY_CONFIG: '${AIRFLOW__DOCKER__REGISTRY_CONFIG}'
       SUPERSET__SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://db_user:db_password@db:5432/db
     group_add: 
       - '1000'  # group ID for the 'airflow' group
