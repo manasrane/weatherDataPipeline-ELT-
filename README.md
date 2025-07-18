@@ -4,7 +4,6 @@
 A modular ELT pipeline to collect, transform, and visualize weather data using modern data engineering tools. Built with **Apache Airflow**, **DBT**, **PostgreSQL**, **Docker**, and **Python**, this project demonstrates scalable data orchestration and transformation in a production-ready environment.
 
 ---
-<img width="1866" height="1007" alt="image" src="https://github.com/user-attachments/assets/e70a1119-702f-4c42-8467-3ab7ee9da5c6" />
 ## 📌 Features
 
 * 🔄 **Automated Scheduling** via **Airflow DAGs**
@@ -90,7 +89,7 @@ docker-compose up --build
 
 ## 📈 Sample Dashboard
 
-*Insert a screenshot or GIF of your Superset dashboard here.*
+*<img width="1866" height="1007" alt="image" src="https://github.com/user-attachments/assets/e70a1119-702f-4c42-8467-3ab7ee9da5c6" />*
 
 ---
 
