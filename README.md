@@ -1,4 +1,4 @@
-[weatherDataPipeline-ELT](https://github.com/manasrane/weatherDataPipeline-ELT](https://github.com/manasrane/weatherDataPipeline-ELT-)
+[weatherDataPipeline-ELT](https://github.com/manasrane/weatherDataPipeline-ELT)
 # 🌦️ Weather Data Pipeline — ELT Architecture with Airflow, DBT, and Docker
 
 A modular ELT pipeline to collect, transform, and visualize weather data using modern data engineering tools. Built with **Apache Airflow**, **DBT**, **PostgreSQL**, **Docker**, and **Python**, this project demonstrates scalable data orchestration and transformation in a production-ready environment.
